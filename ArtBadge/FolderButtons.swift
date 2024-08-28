@@ -1,8 +1,26 @@
-//
-//  FolderButtons.swift
-//  ArtBadge
-//
-//  Created by bodya on 28.08.2024.
-//
+import SwiftUI
 
-import Foundation
+struct FolderButtons: View {
+    var body: some View {
+        HStack(spacing: 20) {
+            FolderButton(
+                label: "Города",
+                systemImage: "folder.fill", 
+                destination: AnyView(CitiesView())
+            )
+            
+            FolderButton(
+                label: "Твое фото",
+                systemImage: "folder.fill",
+                destination: AnyView(YourPhotoView())
+            )
+            
+            FolderButton(
+                label: "Фото с почты",
+                systemImage: "folder.fill",
+                destination: AnyView(MailPhotoView())
+            )
+        }
+    }
+}
+

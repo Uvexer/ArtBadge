@@ -11,6 +11,12 @@
 		A864C31E2C7F26010086CE53 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864C31D2C7F26010086CE53 /* ContentView.swift */; };
 		A864C3202C7F26030086CE53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A864C31F2C7F26030086CE53 /* Assets.xcassets */; };
 		A864C3232C7F26030086CE53 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A864C3222C7F26030086CE53 /* Preview Assets.xcassets */; };
+		A881B63B2C7F332200CD449C /* CitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881B63A2C7F332200CD449C /* CitiesView.swift */; };
+		A881B63D2C7F33C100CD449C /* MailPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881B63C2C7F33C100CD449C /* MailPhotoView.swift */; };
+		A881B63F2C7F33E300CD449C /* YourPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881B63E2C7F33E300CD449C /* YourPhotoView.swift */; };
+		A881B6412C7F38DB00CD449C /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881B6402C7F38DB00CD449C /* HeaderView.swift */; };
+		A881B6432C7F38FF00CD449C /* FolderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881B6422C7F38FF00CD449C /* FolderButton.swift */; };
+		A881B6452C7F391500CD449C /* FolderButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881B6442C7F391500CD449C /* FolderButtons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,12 @@
 		A864C31D2C7F26010086CE53 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A864C31F2C7F26030086CE53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A864C3222C7F26030086CE53 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A881B63A2C7F332200CD449C /* CitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesView.swift; sourceTree = "<group>"; };
+		A881B63C2C7F33C100CD449C /* MailPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailPhotoView.swift; sourceTree = "<group>"; };
+		A881B63E2C7F33E300CD449C /* YourPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourPhotoView.swift; sourceTree = "<group>"; };
+		A881B6402C7F38DB00CD449C /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		A881B6422C7F38FF00CD449C /* FolderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderButton.swift; sourceTree = "<group>"; };
+		A881B6442C7F391500CD449C /* FolderButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderButtons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +65,14 @@
 			children = (
 				A864C31B2C7F26010086CE53 /* ArtBadgeApp.swift */,
 				A864C31D2C7F26010086CE53 /* ContentView.swift */,
+				A881B63E2C7F33E300CD449C /* YourPhotoView.swift */,
+				A881B63C2C7F33C100CD449C /* MailPhotoView.swift */,
 				A864C31F2C7F26030086CE53 /* Assets.xcassets */,
 				A864C3212C7F26030086CE53 /* Preview Content */,
+				A881B63A2C7F332200CD449C /* CitiesView.swift */,
+				A881B6402C7F38DB00CD449C /* HeaderView.swift */,
+				A881B6422C7F38FF00CD449C /* FolderButton.swift */,
+				A881B6442C7F391500CD449C /* FolderButtons.swift */,
 			);
 			path = ArtBadge;
 			sourceTree = "<group>";
@@ -138,7 +156,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A864C31E2C7F26010086CE53 /* ContentView.swift in Sources */,
+				A881B6452C7F391500CD449C /* FolderButtons.swift in Sources */,
+				A881B6412C7F38DB00CD449C /* HeaderView.swift in Sources */,
+				A881B63D2C7F33C100CD449C /* MailPhotoView.swift in Sources */,
+				A881B63F2C7F33E300CD449C /* YourPhotoView.swift in Sources */,
 				A864C31C2C7F26010086CE53 /* ArtBadgeApp.swift in Sources */,
+				A881B6432C7F38FF00CD449C /* FolderButton.swift in Sources */,
+				A881B63B2C7F332200CD449C /* CitiesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,9 +311,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ghghg.ArtBadge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -316,9 +344,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ghghg.ArtBadge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

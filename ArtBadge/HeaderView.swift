@@ -1,8 +1,12 @@
-//
-//  HeaderView.swift
-//  ArtBadge
-//
-//  Created by bodya on 28.08.2024.
-//
+import SwiftUI
 
-import Foundation
+struct HeaderView: View {
+    var text: String
+    
+    var body: some View {
+        Text(text)
+            .font(.system(size: 36))
+            .fontWeight(.bold)
+    }
+}
+

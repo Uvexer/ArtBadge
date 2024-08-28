@@ -1,8 +1,18 @@
-//
-//  FolderButton.swift
-//  ArtBadge
-//
-//  Created by bodya on 28.08.2024.
-//
+import SwiftUI
 
-import Foundation
+struct FolderButton: View {
+    var label: String
+    var systemImage: String
+    var destination: AnyView
+    
+    var body: some View {
+        NavigationLink(destination: destination) {
+            Label(label, systemImage: systemImage)
+                .font(.title)
+                .padding()
+                .cornerRadius(8)
+        }
+        .buttonStyle(PlainButtonStyle())
+    }
+}
+

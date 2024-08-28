@@ -1,23 +1,24 @@
-//
-//  ContentView.swift
-//  ArtBadge
-//
-//  Created by bodya on 28.08.2024.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            NavigationView {
+                VStack {
+                    Spacer()
+                    HeaderView(text: "Давай выберем папку")
+                        .offset(y: -200)
+                    
+                    FolderButtons()
+                    
+                    Spacer()
+                }
+                .navigationTitle("Печать магнита")
+            }
+            .navigationViewStyle(StackNavigationViewStyle())
         }
-        .padding()
     }
-}
+
+
 
 #Preview {
     ContentView()

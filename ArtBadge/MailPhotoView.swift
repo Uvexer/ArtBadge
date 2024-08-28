@@ -1,8 +1,11 @@
-//
-//  MailPgotoView.swift
-//  ArtBadge
-//
-//  Created by bodya on 28.08.2024.
-//
+import SwiftUI
 
-import Foundation
+struct MailPhotoView: View {
+    var body: some View {
+        Text("Здесь будут фото с почты")
+            .font(.largeTitle)
+            .navigationTitle("Фото с почты")
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.white)
+    }
+}
