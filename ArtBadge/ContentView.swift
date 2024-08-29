@@ -13,12 +13,12 @@ struct ContentView: View {
                 Spacer()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.yellow)
+        //    .background(Color.yellow)
             .navigationTitle("Печать магнита")
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .background(Color.yellow)
-        .edgesIgnoringSafeArea(.all) 
+      //  .background(Color.yellow)
+    //    .edgesIgnoringSafeArea(.all)    
     }
 }
 

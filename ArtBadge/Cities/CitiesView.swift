@@ -35,14 +35,15 @@ struct CitiesView: View {
             }
         }
         .fullScreenCover(item: $selectedImage) { image in
-            EnlargedImageView(imageName: image.name, isImageSelected: $isImageSelected)
+            EnlargedImageView(imageName: image.name, isImageSelected: $isImageSelected, selectedImage: $selectedImage)
         }
         .navigationDestination(isPresented: $isImageSelected) {
-            EmptyView()
+            if let selectedImage = selectedImage {
+                EmptyView(selectedImage: selectedImage)
+            }
         }
     }
 }
-
 
 
 #Preview {

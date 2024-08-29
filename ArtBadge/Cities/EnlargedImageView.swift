@@ -3,6 +3,7 @@ import SwiftUI
 struct EnlargedImageView: View {
     let imageName: String
     @Binding var isImageSelected: Bool
+    @Binding var selectedImage: IdentifiableImage?
     
     @Environment(\.dismiss) var dismiss
     
@@ -26,13 +27,23 @@ struct EnlargedImageView: View {
                     
                     Spacer()
                     
-                    NavigationLink(destination: EmptyView()) {
+                    if let image = selectedImage {
+                        NavigationLink(destination: EmptyView(selectedImage: image)) {
+                            Text("Выбрать")
+                                .font(.system(size: 24))
+                                .padding()
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                        }
+                    } else {
                         Text("Выбрать")
                             .font(.system(size: 24))
                             .padding()
-                            .background(Color.blue)
+                            .background(Color.gray)
                             .foregroundColor(.white)
                             .cornerRadius(10)
+                            .opacity(0.5) 
                     }
                 }
                 .padding()
@@ -40,6 +51,7 @@ struct EnlargedImageView: View {
         }
     }
 }
+
 
 #Preview {
     CitiesView()
