@@ -7,12 +7,20 @@ struct FolderButton: View {
     
     var body: some View {
         NavigationLink(destination: destination) {
-            Label(label, systemImage: systemImage)
-                .font(.title)
-                .padding()
-                .cornerRadius(8)
+            VStack(spacing: 5) {
+                Image(systemName: systemImage)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 200, height: 200)
+                
+                Text(label)
+                    .font(.headline)
+                    .lineLimit(1)
+                    .frame(width: 120)
+                    .truncationMode(.tail)
+            }
+            .frame(width: 80)
         }
         .buttonStyle(PlainButtonStyle())
     }
 }
-

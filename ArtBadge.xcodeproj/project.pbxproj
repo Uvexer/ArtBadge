@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A818E8522C80755800680E05 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A818E8512C80755800680E05 /* EmptyView.swift */; };
+		A818E8542C8077C900680E05 /* EnlargedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A818E8532C8077C900680E05 /* EnlargedImageView.swift */; };
 		A864C31C2C7F26010086CE53 /* ArtBadgeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864C31B2C7F26010086CE53 /* ArtBadgeApp.swift */; };
 		A864C31E2C7F26010086CE53 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864C31D2C7F26010086CE53 /* ContentView.swift */; };
 		A864C3202C7F26030086CE53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A864C31F2C7F26030086CE53 /* Assets.xcassets */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A818E8512C80755800680E05 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		A818E8532C8077C900680E05 /* EnlargedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnlargedImageView.swift; sourceTree = "<group>"; };
 		A864C3182C7F26010086CE53 /* ArtBadge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArtBadge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A864C31B2C7F26010086CE53 /* ArtBadgeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtBadgeApp.swift; sourceTree = "<group>"; };
 		A864C31D2C7F26010086CE53 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +48,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A818E8552C80786B00680E05 /* Cities */ = {
+			isa = PBXGroup;
+			children = (
+				A881B63A2C7F332200CD449C /* CitiesView.swift */,
+				A818E8512C80755800680E05 /* EmptyView.swift */,
+				A818E8532C8077C900680E05 /* EnlargedImageView.swift */,
+			);
+			path = Cities;
+			sourceTree = "<group>";
+		};
 		A864C30F2C7F26000086CE53 = {
 			isa = PBXGroup;
 			children = (
@@ -63,13 +77,13 @@
 		A864C31A2C7F26010086CE53 /* ArtBadge */ = {
 			isa = PBXGroup;
 			children = (
+				A818E8552C80786B00680E05 /* Cities */,
 				A864C31B2C7F26010086CE53 /* ArtBadgeApp.swift */,
 				A864C31D2C7F26010086CE53 /* ContentView.swift */,
 				A881B63E2C7F33E300CD449C /* YourPhotoView.swift */,
 				A881B63C2C7F33C100CD449C /* MailPhotoView.swift */,
 				A864C31F2C7F26030086CE53 /* Assets.xcassets */,
 				A864C3212C7F26030086CE53 /* Preview Content */,
-				A881B63A2C7F332200CD449C /* CitiesView.swift */,
 				A881B6402C7F38DB00CD449C /* HeaderView.swift */,
 				A881B6422C7F38FF00CD449C /* FolderButton.swift */,
 				A881B6442C7F391500CD449C /* FolderButtons.swift */,
@@ -156,10 +170,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A864C31E2C7F26010086CE53 /* ContentView.swift in Sources */,
+				A818E8522C80755800680E05 /* EmptyView.swift in Sources */,
 				A881B6452C7F391500CD449C /* FolderButtons.swift in Sources */,
 				A881B6412C7F38DB00CD449C /* HeaderView.swift in Sources */,
 				A881B63D2C7F33C100CD449C /* MailPhotoView.swift in Sources */,
 				A881B63F2C7F33E300CD449C /* YourPhotoView.swift in Sources */,
+				A818E8542C8077C900680E05 /* EnlargedImageView.swift in Sources */,
 				A864C31C2C7F26010086CE53 /* ArtBadgeApp.swift in Sources */,
 				A881B6432C7F38FF00CD449C /* FolderButton.swift in Sources */,
 				A881B63B2C7F332200CD449C /* CitiesView.swift in Sources */,
