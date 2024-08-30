@@ -18,7 +18,7 @@ struct ContentView: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
       //  .background(Color.yellow)
-    //    .edgesIgnoringSafeArea(.all)    
+    //    .edgesIgnoringSafeArea(.all)
     }
 }
 

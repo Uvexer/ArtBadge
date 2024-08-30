@@ -21,6 +21,10 @@
 		A881B6412C7F38DB00CD449C /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881B6402C7F38DB00CD449C /* HeaderView.swift */; };
 		A881B6432C7F38FF00CD449C /* FolderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881B6422C7F38FF00CD449C /* FolderButton.swift */; };
 		A881B6452C7F391500CD449C /* FolderButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881B6442C7F391500CD449C /* FolderButtons.swift */; };
+		A88A0B802C82064E00A07DC7 /* ImageEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88A0B7F2C82064E00A07DC7 /* ImageEditor.swift */; };
+		A88A0B822C82066900A07DC7 /* ShapePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88A0B812C82066900A07DC7 /* ShapePicker.swift */; };
+		A88A0B842C82068000A07DC7 /* SizePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88A0B832C82068000A07DC7 /* SizePicker.swift */; };
+		A88A0B862C820A0B00A07DC7 /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88A0B852C820A0B00A07DC7 /* Print.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +43,10 @@
 		A881B6402C7F38DB00CD449C /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		A881B6422C7F38FF00CD449C /* FolderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderButton.swift; sourceTree = "<group>"; };
 		A881B6442C7F391500CD449C /* FolderButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderButtons.swift; sourceTree = "<group>"; };
+		A88A0B7F2C82064E00A07DC7 /* ImageEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditor.swift; sourceTree = "<group>"; };
+		A88A0B812C82066900A07DC7 /* ShapePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapePicker.swift; sourceTree = "<group>"; };
+		A88A0B832C82068000A07DC7 /* SizePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizePicker.swift; sourceTree = "<group>"; };
+		A88A0B852C820A0B00A07DC7 /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +76,10 @@
 				A818E8572C8087B200680E05 /* AnyShape.swift */,
 				A818E8592C8087C700680E05 /* ShapeType.swift */,
 				A818E85B2C8087DB00680E05 /* EmptyView.swift */,
+				A88A0B7F2C82064E00A07DC7 /* ImageEditor.swift */,
+				A88A0B812C82066900A07DC7 /* ShapePicker.swift */,
+				A88A0B832C82068000A07DC7 /* SizePicker.swift */,
+				A88A0B852C820A0B00A07DC7 /* Print.swift */,
 			);
 			path = Empty;
 			sourceTree = "<group>";
@@ -183,9 +195,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A88A0B802C82064E00A07DC7 /* ImageEditor.swift in Sources */,
 				A864C31E2C7F26010086CE53 /* ContentView.swift in Sources */,
 				A818E85C2C8087DB00680E05 /* EmptyView.swift in Sources */,
+				A88A0B862C820A0B00A07DC7 /* Print.swift in Sources */,
 				A818E85A2C8087C700680E05 /* ShapeType.swift in Sources */,
+				A88A0B822C82066900A07DC7 /* ShapePicker.swift in Sources */,
+				A88A0B842C82068000A07DC7 /* SizePicker.swift in Sources */,
 				A881B6452C7F391500CD449C /* FolderButtons.swift in Sources */,
 				A881B6412C7F38DB00CD449C /* HeaderView.swift in Sources */,
 				A881B63D2C7F33C100CD449C /* MailPhotoView.swift in Sources */,
