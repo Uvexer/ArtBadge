@@ -14,7 +14,7 @@ struct ContentView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         //    .background(Color.yellow)
-            .navigationTitle("Печать магнита")
+          //  .navigationTitle("Печать магнита")
         }
         .navigationViewStyle(StackNavigationViewStyle())
       //  .background(Color.yellow)
