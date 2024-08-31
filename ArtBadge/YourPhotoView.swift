@@ -27,15 +27,21 @@ struct YourPhotoView: View {
     func handleIncomingURL(_ url: URL) {
         guard url.startAccessingSecurityScopedResource() else { return }
         defer { url.stopAccessingSecurityScopedResource() }
-        
+
         do {
             let data = try Data(contentsOf: url)
             if let uiImage = UIImage(data: data) {
                 image = uiImage
+                saveToPhotoLibrary(uiImage)
             }
         } catch {
             print("Ошибка при загрузке изображения: \(error.localizedDescription)")
         }
+    }
+    
+    
+    func saveToPhotoLibrary(_ image: UIImage) {
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
     }
 }
 
