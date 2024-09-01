@@ -49,7 +49,7 @@ struct EmptyView: View {
         
     }
 }
-#Preview {
-    EmptyView(selectedImage: IdentifiableImage(name: "city1"))
-}
-
+//#Preview {
+//    EmptyView(selectedImage: IdentifiableImage(name: "city1"))
+//}
+//

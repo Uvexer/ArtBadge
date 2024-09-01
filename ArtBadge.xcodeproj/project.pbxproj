@@ -70,6 +70,7 @@
 				A818E8562C80876900680E05 /* Empty */,
 				A881B63A2C7F332200CD449C /* CitiesView.swift */,
 				A818E8532C8077C900680E05 /* EnlargedImageView.swift */,
+				A818E8592C8087C700680E05 /* ShapeType.swift */,
 			);
 			path = Cities;
 			sourceTree = "<group>";
@@ -78,7 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				A818E8572C8087B200680E05 /* AnyShape.swift */,
-				A818E8592C8087C700680E05 /* ShapeType.swift */,
 				A818E85B2C8087DB00680E05 /* EmptyView.swift */,
 				A88A0B7F2C82064E00A07DC7 /* ImageEditor.swift */,
 				A88A0B812C82066900A07DC7 /* ShapePicker.swift */,

@@ -1,8 +1,9 @@
 import SwiftUI
 
 struct IdentifiableImage: Identifiable {
-    let id = UUID()
+    let id: UUID
     let name: String
+    let imageData: Data
 }
 
 struct CitiesView: View {
@@ -10,7 +11,6 @@ struct CitiesView: View {
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
     
     @State private var selectedImage: IdentifiableImage? = nil
-    @State private var isImageSelected: Bool = false
     
     var body: some View {
         ScrollView {
@@ -27,7 +27,9 @@ struct CitiesView: View {
                             .cornerRadius(10)
                             .padding()
                             .onTapGesture {
-                                selectedImage = IdentifiableImage(name: imageName)
+                                if let uiImage = UIImage(named: imageName), let imageData = uiImage.jpegData(compressionQuality: 1.0) {
+                                    selectedImage = IdentifiableImage(id: UUID(), name: imageName, imageData: imageData)
+                                }
                             }
                     }
                 }
@@ -35,18 +37,8 @@ struct CitiesView: View {
             }
         }
         .fullScreenCover(item: $selectedImage) { image in
-            EnlargedImageView(imageName: image.name, isImageSelected: $isImageSelected, selectedImage: $selectedImage)
-        }
-        .navigationDestination(isPresented: $isImageSelected) {
-            if let selectedImage = selectedImage {
-                EmptyView(selectedImage: selectedImage)
-            }
+            PrintView(selectedImage: image, selectedShape: .rectangle, selectedSize: .medium)
         }
     }
-}
-
-
-#Preview {
-    CitiesView()
 }
 

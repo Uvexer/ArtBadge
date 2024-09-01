@@ -9,15 +9,12 @@ struct PrintView: View {
     
     var body: some View {
         VStack {
-            ImageEditorView(
-                imageName: selectedImage.name,
-                shape: selectedShape,
-                size: selectedShape.frameSize(for: selectedSize),
-                currentScale: .constant(1.0),
-                lastScaleValue: .constant(1.0),
-                offset: .constant(.zero),
-                lastOffset: .constant(.zero)
-            )
+        
+            if let uiImage = UIImage(data: selectedImage.imageData) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            }
             
             HStack {
                 Button(action: {
@@ -49,4 +46,3 @@ struct PrintView: View {
         .padding()
     }
 }
-
