@@ -1,7 +1,8 @@
 import SwiftUI
 
 struct ImageEditorView: View {
-    let imageName: String
+    let uiImage: UIImage?
+    let imageName: String?
     let shape: ShapeType
     let size: CGSize
     
@@ -12,41 +13,82 @@ struct ImageEditorView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            Image(imageName)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .scaleEffect(currentScale)
-                .offset(x: offset.width, y: offset.height)
-                .gesture(
-                    MagnificationGesture()
-                        .onChanged { value in
-                            let delta = value / self.lastScaleValue
-                            self.lastScaleValue = value
-                            self.currentScale *= delta
-                        }
-                        .onEnded { _ in
-                            self.lastScaleValue = 1.0
-                            self.adjustOffset(for: geometry.size, in: size)
-                        }
-                        .simultaneously(
-                            with: DragGesture()
-                                .onChanged { value in
-                                    self.offset = CGSize(
-                                        width: self.lastOffset.width + value.translation.width,
-                                        height: self.lastOffset.height + value.translation.height
-                                    )
-                                }
-                                .onEnded { value in
-                                    self.lastOffset = self.offset
-                                    self.adjustOffset(for: geometry.size, in: size)
-                                }
-                        )
-                )
-                .frame(width: size.width, height: size.height)
-                .clipShape(shape.shape)
-                .overlay(shape.shape.stroke(Color.white, lineWidth: 4))
-                .shadow(radius: 10)
-                .padding()
+            if let uiImage = uiImage {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .scaleEffect(currentScale)
+                    .offset(x: offset.width, y: offset.height)
+                    .gesture(
+                        MagnificationGesture()
+                            .onChanged { value in
+                                let delta = value / self.lastScaleValue
+                                self.lastScaleValue = value
+                                self.currentScale *= delta
+                            }
+                            .onEnded { _ in
+                                self.lastScaleValue = 1.0
+                                self.adjustOffset(for: geometry.size, in: size)
+                            }
+                            .simultaneously(
+                                with: DragGesture()
+                                    .onChanged { value in
+                                        self.offset = CGSize(
+                                            width: self.lastOffset.width + value.translation.width,
+                                            height: self.lastOffset.height + value.translation.height
+                                        )
+                                    }
+                                    .onEnded { value in
+                                        self.lastOffset = self.offset
+                                        self.adjustOffset(for: geometry.size, in: size)
+                                    }
+                            )
+                    )
+                    .frame(width: size.width, height: size.height)
+                    .clipShape(shape.shape)
+                    .overlay(shape.shape.stroke(Color.white, lineWidth: 4))
+                    .shadow(radius: 10)
+                    .padding()
+            } else if let imageName = imageName {
+                Image(imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .scaleEffect(currentScale)
+                    .offset(x: offset.width, y: offset.height)
+                    .gesture(
+                        MagnificationGesture()
+                            .onChanged { value in
+                                let delta = value / self.lastScaleValue
+                                self.lastScaleValue = value
+                                self.currentScale *= delta
+                            }
+                            .onEnded { _ in
+                                self.lastScaleValue = 1.0
+                                self.adjustOffset(for: geometry.size, in: size)
+                            }
+                            .simultaneously(
+                                with: DragGesture()
+                                    .onChanged { value in
+                                        self.offset = CGSize(
+                                            width: self.lastOffset.width + value.translation.width,
+                                            height: self.lastOffset.height + value.translation.height
+                                        )
+                                    }
+                                    .onEnded { value in
+                                        self.lastOffset = self.offset
+                                        self.adjustOffset(for: geometry.size, in: size)
+                                    }
+                            )
+                    )
+                    .frame(width: size.width, height: size.height)
+                    .clipShape(shape.shape)
+                    .overlay(shape.shape.stroke(Color.white, lineWidth: 4))
+                    .shadow(radius: 10)
+                    .padding()
+            } else {
+                Text("Изображение не доступно")
+                    .foregroundColor(.red)
+            }
         }
         .frame(width: size.width, height: size.height)
     }
@@ -69,4 +111,3 @@ struct ImageEditorView: View {
         lastOffset = offset
     }
 }
-

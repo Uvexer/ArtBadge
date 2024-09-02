@@ -16,7 +16,7 @@ struct MailGalleryView: View {
             .fullScreenCover(item: $selectedImage) { image in
                 if let imageData = image.image.jpegData(compressionQuality: 1.0) {
                     let identifiableImage = IdentifiableImage(id: UUID(), name: "Selected Image", imageData: imageData)
-                    PrintView(selectedImage: identifiableImage, selectedShape: .rectangle, selectedSize: .medium)
+                    EmptyView(selectedImage: identifiableImage)
                 }
             }
     }

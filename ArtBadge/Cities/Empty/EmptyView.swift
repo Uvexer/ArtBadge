@@ -18,15 +18,23 @@ struct EmptyView: View {
                 .font(.system(size: 36))
                 .fontWeight(.bold)
             
-            ImageEditorView(
-                imageName: selectedImage.name,
-                shape: selectedShape,
-                size: selectedShape.frameSize(for: selectedSize),
-                currentScale: $currentScale,
-                lastScaleValue: $lastScaleValue,
-                offset: $offset,
-                lastOffset: $lastOffset
-            )
+            if let uiImage = UIImage(data: selectedImage.imageData) {
+                ImageEditorView(
+                    uiImage: uiImage,
+                    imageName: nil,
+                    shape: selectedShape,
+                    size: selectedShape.frameSize(for: selectedSize),
+                    currentScale: $currentScale,
+                    lastScaleValue: $lastScaleValue,
+                    offset: $offset,
+                    lastOffset: $lastOffset
+                )
+            } else {
+              
+                Text("Не удалось загрузить изображение")
+                    .foregroundColor(.red)
+            }
+
             
             ShapePickerView(selectedShape: $selectedShape)
             SizePickerView(selectedSize: $selectedSize)
@@ -46,10 +54,6 @@ struct EmptyView: View {
                 PrintView(selectedImage: selectedImage, selectedShape: selectedShape, selectedSize: selectedSize)
             }
         }
-        
+        .padding()
     }
 }
-//#Preview {
-//    EmptyView(selectedImage: IdentifiableImage(name: "city1"))
-//}
-//

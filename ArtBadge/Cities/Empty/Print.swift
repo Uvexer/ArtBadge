@@ -6,10 +6,10 @@ struct PrintView: View {
     let selectedSize: SizeType
     
     @Environment(\.presentationMode) var presentationMode
+    @State private var isEmptyViewPresented: Bool = false
     
     var body: some View {
         VStack {
-        
             if let uiImage = UIImage(data: selectedImage.imageData) {
                 Image(uiImage: uiImage)
                     .resizable()
@@ -31,6 +31,7 @@ struct PrintView: View {
                 }
                 
                 Button(action: {
+                    isEmptyViewPresented = true
                 }) {
                     Text("Печать")
                         .font(.title2)
@@ -44,5 +45,8 @@ struct PrintView: View {
             }
         }
         .padding()
+        .fullScreenCover(isPresented: $isEmptyViewPresented) {
+            EmptyView(selectedImage: selectedImage)
+        }
     }
 }
