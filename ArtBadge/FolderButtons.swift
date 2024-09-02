@@ -14,7 +14,7 @@ struct FolderButtons: View {
                 FolderButton(
                     label: "Твое фото",
                     systemImage: "folder",
-                    destination: AnyView(YourPhotoView())
+                    destination: AnyView(CustomCameraView())
                 )
                 
                 FolderButton(

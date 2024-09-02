@@ -1,47 +1,123 @@
 import SwiftUI
-import UniformTypeIdentifiers
+import AVFoundation
 
-struct YourPhotoView: View {
-    @State private var image: UIImage? = nil
-
+struct CustomCameraView: View {
+    @StateObject private var cameraViewModel = CameraViewModel()
+    
     var body: some View {
-        VStack {
-            if let image = image {
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 300, height: 300)
-            } else {
-                Text("Фото не получено")
-                    .font(.largeTitle)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(Color.white)
+        ZStack {
+            CameraPreview(session: cameraViewModel.session)
+                .ignoresSafeArea(.all, edges: .all)
+            
+            VStack {
+                Spacer()
+                
+                HStack {
+                    Button(action: {
+                        cameraViewModel.takePhoto()
+                    }) {
+                        Image(systemName: "camera.circle")
+                            .resizable()
+                            .frame(width: 70, height: 70)
+                            .foregroundColor(.white)
+                    }
+                }
+                .padding(.bottom, 20)
             }
         }
-        .navigationTitle("Твое фото")
-        .onOpenURL { url in
-            handleIncomingURL(url)
+        .onAppear {
+            cameraViewModel.configure()
+        }
+        .onDisappear {
+            cameraViewModel.stopSession()
         }
     }
+}
 
-    func handleIncomingURL(_ url: URL) {
-        guard url.startAccessingSecurityScopedResource() else { return }
-        defer { url.stopAccessingSecurityScopedResource() }
+struct CameraPreview: UIViewRepresentable {
+    var session: AVCaptureSession
+    
+    func makeUIView(context: Context) -> UIView {
+        let view = UIView(frame: UIScreen.main.bounds)
+        let previewLayer = AVCaptureVideoPreviewLayer(session: session)
+        previewLayer.videoGravity = .resizeAspectFill
+        previewLayer.connection?.videoOrientation = .portrait
+        previewLayer.frame = view.frame
+        view.layer.addSublayer(previewLayer)
+        return view
+    }
+    
+    func updateUIView(_ uiView: UIView, context: Context) {
+        
+    }
+}
 
+class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
+    @Published var session = AVCaptureSession()
+    private var output = AVCapturePhotoOutput()
+    
+    func configure() {
+        checkPermissions()
+        setupSession()
+    }
+    
+    private func checkPermissions() {
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .authorized:
+            return
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video) { granted in
+                if !granted {
+                  
+                }
+            }
+        case .denied, .restricted:
+            
+            return
+        default:
+            break
+        }
+    }
+    
+    private func setupSession() {
+        session.beginConfiguration()
+        
+      
+        guard let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else { return }
+        
         do {
-            let data = try Data(contentsOf: url)
-            if let uiImage = UIImage(data: data) {
-                image = uiImage
-                saveToPhotoLibrary(uiImage)
+            let input = try AVCaptureDeviceInput(device: device)
+            if session.canAddInput(input) {
+                session.addInput(input)
             }
         } catch {
-            print("Ошибка при загрузке изображения: \(error.localizedDescription)")
+            print("Error setting device input: \(error)")
+            return
         }
+        
+     
+        if session.canAddOutput(output) {
+            session.addOutput(output)
+        }
+        
+        session.commitConfiguration()
+        session.startRunning()
     }
     
+    func takePhoto() {
+        let settings = AVCapturePhotoSettings()
+        output.capturePhoto(with: settings, delegate: self)
+    }
     
-    func saveToPhotoLibrary(_ image: UIImage) {
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+    func stopSession() {
+        session.stopRunning()
+    }
+    
+   
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        guard let imageData = photo.fileDataRepresentation() else { return }
+        let image = UIImage(data: imageData)
+       
     }
 }
 
