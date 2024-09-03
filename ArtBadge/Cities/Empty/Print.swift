@@ -14,6 +14,9 @@ struct PrintView: View {
                 Image(uiImage: uiImage)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .clipShape(selectedShape.shape)
+                    .frame(width: selectedShape.frameSize(for: selectedSize).width,
+                           height: selectedShape.frameSize(for: selectedSize).height)
             }
             
             HStack {
@@ -31,7 +34,6 @@ struct PrintView: View {
                 }
                 
                 Button(action: {
-                    isEmptyViewPresented = true
                 }) {
                     Text("Печать")
                         .font(.title2)
@@ -45,8 +47,5 @@ struct PrintView: View {
             }
         }
         .padding()
-        .fullScreenCover(isPresented: $isEmptyViewPresented) {
-            EmptyView(selectedImage: selectedImage)
-        }
     }
 }

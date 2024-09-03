@@ -30,12 +30,10 @@ struct EmptyView: View {
                     lastOffset: $lastOffset
                 )
             } else {
-              
                 Text("Не удалось загрузить изображение")
                     .foregroundColor(.red)
             }
 
-            
             ShapePickerView(selectedShape: $selectedShape)
             SizePickerView(selectedSize: $selectedSize)
             Button(action: {
@@ -50,7 +48,7 @@ struct EmptyView: View {
                     .cornerRadius(10)
                     .padding()
             }
-            .sheet(isPresented: $isPrintViewPresented) {
+            .fullScreenCover(isPresented: $isPrintViewPresented) {
                 PrintView(selectedImage: selectedImage, selectedShape: selectedShape, selectedSize: selectedSize)
             }
         }

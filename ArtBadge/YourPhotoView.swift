@@ -74,10 +74,8 @@ struct ImageView: View {
                 .background(Color.blue)
                 .foregroundColor(.white)
                 .cornerRadius(10)
-                .sheet(isPresented: $isEnlargedImageViewPresented) {
-                    if let selectedImage = selectedImage {
-                        EnlargedImageView(selectedImage: selectedImage)
-                    }
+                .fullScreenCover(item: $selectedImage) { image in
+                    EnlargedImageView(selectedImage: image)
                 }
             } else {
                 Text("No image captured")

@@ -6,7 +6,6 @@ struct EnlargedImageView: View {
     
     @State private var isEmptyViewPresented = false
 
-    
     init(selectedImage: IdentifiableUIImage) {
         self.uiImage = selectedImage.image
         self.imageName = nil
