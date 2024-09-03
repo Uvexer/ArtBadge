@@ -3,6 +3,8 @@ import AVFoundation
 
 struct CustomCameraView: View {
     @StateObject private var cameraViewModel = CameraViewModel()
+    @State private var capturedImage: UIImage? = nil
+    @State private var showImageView = false
     
     var body: some View {
         ZStack {
@@ -13,23 +15,75 @@ struct CustomCameraView: View {
                 Spacer()
                 
                 HStack {
+                    Spacer()
                     Button(action: {
-                        cameraViewModel.takePhoto()
+                        cameraViewModel.takePhoto { image in
+                            self.capturedImage = image
+                            self.showImageView = true
+                        }
                     }) {
                         Image(systemName: "camera.circle")
                             .resizable()
-                            .frame(width: 70, height: 70)
+                            .frame(width: 100, height: 100)
                             .foregroundColor(.white)
                     }
+                    Spacer()
                 }
                 .padding(.bottom, 20)
             }
+            .background(
+                NavigationLink(
+                    destination: ImageView(image: capturedImage),
+                    isActive: $showImageView,
+                    label: {
+                        Text("")
+                    }
+                )
+            )
         }
         .onAppear {
             cameraViewModel.configure()
         }
         .onDisappear {
             cameraViewModel.stopSession()
+        }
+        .navigationBarHidden(true)
+    }
+}
+
+struct ImageView: View {
+    var image: UIImage?
+
+    @State private var isEnlargedImageViewPresented = false
+    @State private var selectedImage: IdentifiableUIImage?
+
+    var body: some View {
+        VStack {
+            if let image = image {
+                Image(uiImage: image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .ignoresSafeArea()
+
+                Button("Далее") {
+                    selectedImage = IdentifiableUIImage(image: image)
+                    isEnlargedImageViewPresented = true
+                }
+                .font(.system(size: 24))
+                .padding()
+                .background(Color.blue)
+                .foregroundColor(.white)
+                .cornerRadius(10)
+                .sheet(isPresented: $isEnlargedImageViewPresented) {
+                    if let selectedImage = selectedImage {
+                        EnlargedImageView(selectedImage: selectedImage)
+                    }
+                }
+            } else {
+                Text("No image captured")
+                    .foregroundColor(.red)
+            }
+            Spacer()
         }
     }
 }
@@ -47,9 +101,7 @@ struct CameraPreview: UIViewRepresentable {
         return view
     }
     
-    func updateUIView(_ uiView: UIView, context: Context) {
-        
-    }
+    func updateUIView(_ uiView: UIView, context: Context) {}
 }
 
 class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
@@ -67,12 +119,9 @@ class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate
             return
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .video) { granted in
-                if !granted {
-                  
-                }
+                if !granted {}
             }
         case .denied, .restricted:
-            
             return
         default:
             break
@@ -82,8 +131,7 @@ class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate
     private func setupSession() {
         session.beginConfiguration()
         
-      
-        guard let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else { return }
+        guard let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) else { return }
         
         do {
             let input = try AVCaptureDeviceInput(device: device)
@@ -95,7 +143,6 @@ class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate
             return
         }
         
-     
         if session.canAddOutput(output) {
             session.addOutput(output)
         }
@@ -104,20 +151,24 @@ class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate
         session.startRunning()
     }
     
-    func takePhoto() {
+    func takePhoto(completion: @escaping (UIImage?) -> Void) {
         let settings = AVCapturePhotoSettings()
         output.capturePhoto(with: settings, delegate: self)
+        self.completion = completion
     }
     
     func stopSession() {
         session.stopRunning()
     }
     
-   
+    private var completion: ((UIImage?) -> Void)?
+    
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        guard let imageData = photo.fileDataRepresentation() else { return }
+        guard let imageData = photo.fileDataRepresentation() else {
+            completion?(nil)
+            return
+        }
         let image = UIImage(data: imageData)
-       
+        completion?(image)
     }
 }
-

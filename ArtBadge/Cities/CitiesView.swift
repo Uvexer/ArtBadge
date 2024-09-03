@@ -4,6 +4,12 @@ struct IdentifiableImage: Identifiable {
     let id: UUID
     let name: String
     let imageData: Data
+    
+    init(id: UUID = UUID(), name: String, imageData: Data) {
+        self.id = id
+        self.name = name
+        self.imageData = imageData
+    }
 }
 
 struct CitiesView: View {
@@ -28,7 +34,7 @@ struct CitiesView: View {
                             .padding()
                             .onTapGesture {
                                 if let uiImage = UIImage(named: imageName), let imageData = uiImage.jpegData(compressionQuality: 1.0) {
-                                    selectedImage = IdentifiableImage(id: UUID(), name: imageName, imageData: imageData)
+                                    selectedImage = IdentifiableImage(name: imageName, imageData: imageData)
                                 }
                             }
                     }
@@ -37,7 +43,7 @@ struct CitiesView: View {
             }
         }
         .fullScreenCover(item: $selectedImage) { image in
-            PrintView(selectedImage: image, selectedShape: .rectangle, selectedSize: .medium)
+            EnlargedImageView(selectedImage: image) 
         }
     }
 }

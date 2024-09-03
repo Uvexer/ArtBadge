@@ -14,10 +14,7 @@ struct MailGalleryView: View {
         PhotoPicker(selectedImage: $selectedImage)
             .edgesIgnoringSafeArea(.all)
             .fullScreenCover(item: $selectedImage) { image in
-                if let imageData = image.image.jpegData(compressionQuality: 1.0) {
-                    let identifiableImage = IdentifiableImage(id: UUID(), name: "Selected Image", imageData: imageData)
-                    EmptyView(selectedImage: identifiableImage)
-                }
+                EnlargedImageView(selectedImage: image)
             }
     }
 }
