@@ -13,81 +13,89 @@ struct ImageEditorView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            if let uiImage = uiImage {
-                Image(uiImage: uiImage)
+            ZStack {
+                if let uiImage = uiImage {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .scaleEffect(currentScale)
+                        .offset(x: offset.width, y: offset.height)
+                        .gesture(
+                            MagnificationGesture()
+                                .onChanged { value in
+                                    let delta = value / self.lastScaleValue
+                                    self.lastScaleValue = value
+                                    self.currentScale *= delta
+                                }
+                                .onEnded { _ in
+                                    self.lastScaleValue = 1.0
+                                    self.adjustOffset(for: geometry.size, in: size)
+                                }
+                                .simultaneously(
+                                    with: DragGesture()
+                                        .onChanged { value in
+                                            self.offset = CGSize(
+                                                width: self.lastOffset.width + value.translation.width,
+                                                height: self.lastOffset.height + value.translation.height
+                                            )
+                                        }
+                                        .onEnded { value in
+                                            self.lastOffset = self.offset
+                                            self.adjustOffset(for: geometry.size, in: size)
+                                        }
+                                )
+                        )
+                        .frame(width: size.width, height: size.height)
+                        .clipShape(shape.shape)
+                        .overlay(shape.shape.stroke(Color.white, lineWidth: 4))
+                        .shadow(radius: 10)
+                        .padding()
+                } else if let imageName = imageName {
+                    Image(imageName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .scaleEffect(currentScale)
+                        .offset(x: offset.width, y: offset.height)
+                        .gesture(
+                            MagnificationGesture()
+                                .onChanged { value in
+                                    let delta = value / self.lastScaleValue
+                                    self.lastScaleValue = value
+                                    self.currentScale *= delta
+                                }
+                                .onEnded { _ in
+                                    self.lastScaleValue = 1.0
+                                    self.adjustOffset(for: geometry.size, in: size)
+                                }
+                                .simultaneously(
+                                    with: DragGesture()
+                                        .onChanged { value in
+                                            self.offset = CGSize(
+                                                width: self.lastOffset.width + value.translation.width,
+                                                height: self.lastOffset.height + value.translation.height
+                                            )
+                                        }
+                                        .onEnded { value in
+                                            self.lastOffset = self.offset
+                                            self.adjustOffset(for: geometry.size, in: size)
+                                        }
+                                )
+                        )
+                        .frame(width: size.width, height: size.height)
+                        .clipShape(shape.shape)
+                        .overlay(shape.shape.stroke(Color.white, lineWidth: 4))
+                        .shadow(radius: 10)
+                        .padding()
+                } else {
+                    Text("Изображение не доступно")
+                        .foregroundColor(.red)
+                }
+                Image("logo.sun")
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .scaleEffect(currentScale)
-                    .offset(x: offset.width, y: offset.height)
-                    .gesture(
-                        MagnificationGesture()
-                            .onChanged { value in
-                                let delta = value / self.lastScaleValue
-                                self.lastScaleValue = value
-                                self.currentScale *= delta
-                            }
-                            .onEnded { _ in
-                                self.lastScaleValue = 1.0
-                                self.adjustOffset(for: geometry.size, in: size)
-                            }
-                            .simultaneously(
-                                with: DragGesture()
-                                    .onChanged { value in
-                                        self.offset = CGSize(
-                                            width: self.lastOffset.width + value.translation.width,
-                                            height: self.lastOffset.height + value.translation.height
-                                        )
-                                    }
-                                    .onEnded { value in
-                                        self.lastOffset = self.offset
-                                        self.adjustOffset(for: geometry.size, in: size)
-                                    }
-                            )
-                    )
-                    .frame(width: size.width, height: size.height)
-                    .clipShape(shape.shape)
-                    .overlay(shape.shape.stroke(Color.white, lineWidth: 4))
-                    .shadow(radius: 10)
-                    .padding()
-            } else if let imageName = imageName {
-                Image(imageName)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .scaleEffect(currentScale)
-                    .offset(x: offset.width, y: offset.height)
-                    .gesture(
-                        MagnificationGesture()
-                            .onChanged { value in
-                                let delta = value / self.lastScaleValue
-                                self.lastScaleValue = value
-                                self.currentScale *= delta
-                            }
-                            .onEnded { _ in
-                                self.lastScaleValue = 1.0
-                                self.adjustOffset(for: geometry.size, in: size)
-                            }
-                            .simultaneously(
-                                with: DragGesture()
-                                    .onChanged { value in
-                                        self.offset = CGSize(
-                                            width: self.lastOffset.width + value.translation.width,
-                                            height: self.lastOffset.height + value.translation.height
-                                        )
-                                    }
-                                    .onEnded { value in
-                                        self.lastOffset = self.offset
-                                        self.adjustOffset(for: geometry.size, in: size)
-                                    }
-                            )
-                    )
-                    .frame(width: size.width, height: size.height)
-                    .clipShape(shape.shape)
-                    .overlay(shape.shape.stroke(Color.white, lineWidth: 4))
-                    .shadow(radius: 10)
-                    .padding()
-            } else {
-                Text("Изображение не доступно")
-                    .foregroundColor(.red)
+                    .scaledToFit()
+                    .opacity(0.7)
+                    .frame(width: size.width * 0.3, height: size.height * 0.3)
+                    .position(x: size.width * 0.5, y: size.height * 0.5)
             }
         }
         .frame(width: size.width, height: size.height)

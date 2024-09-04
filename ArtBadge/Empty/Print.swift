@@ -6,17 +6,28 @@ struct PrintView: View {
     let selectedSize: SizeType
     
     @Environment(\.presentationMode) var presentationMode
-    @State private var isEmptyViewPresented: Bool = false
-    
     var body: some View {
         VStack {
             if let uiImage = UIImage(data: selectedImage.imageData) {
-                Image(uiImage: uiImage)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .clipShape(selectedShape.shape)
-                    .frame(width: selectedShape.frameSize(for: selectedSize).width,
-                           height: selectedShape.frameSize(for: selectedSize).height)
+                ZStack {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .clipShape(selectedShape.shape)
+                        .frame(width: selectedShape.frameSize(for: selectedSize).width,
+                               height: selectedShape.frameSize(for: selectedSize).height)
+                    
+                    Image("logo.sun")
+                        .resizable()
+                        .scaledToFit()
+                        .opacity(0.7)
+                        .frame(width: selectedShape.frameSize(for: selectedSize).width * 0.3,
+                               height: selectedShape.frameSize(for: selectedSize).height * 0.3)
+                        .offset(x: 0, y: 0)
+                }
+                .compositingGroup()
+                .frame(width: selectedShape.frameSize(for: selectedSize).width,
+                       height: selectedShape.frameSize(for: selectedSize).height)
             }
             
             HStack {
