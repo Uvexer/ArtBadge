@@ -19,7 +19,7 @@
 		A876A76E2C821A8D008A1CEC /* MailWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = A876A76D2C821A8D008A1CEC /* MailWeb.swift */; };
 		A881B63B2C7F332200CD449C /* CitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881B63A2C7F332200CD449C /* CitiesView.swift */; };
 		A881B63D2C7F33C100CD449C /* MailPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881B63C2C7F33C100CD449C /* MailPhotoView.swift */; };
-		A881B63F2C7F33E300CD449C /* YourPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881B63E2C7F33E300CD449C /* YourPhotoView.swift */; };
+		A881B63F2C7F33E300CD449C /* YourPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881B63E2C7F33E300CD449C /* YourPhoto.swift */; };
 		A881B6412C7F38DB00CD449C /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881B6402C7F38DB00CD449C /* HeaderView.swift */; };
 		A881B6432C7F38FF00CD449C /* FolderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881B6422C7F38FF00CD449C /* FolderButton.swift */; };
 		A881B6452C7F391500CD449C /* FolderButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881B6442C7F391500CD449C /* FolderButtons.swift */; };
@@ -27,6 +27,9 @@
 		A88A0B822C82066900A07DC7 /* ShapePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88A0B812C82066900A07DC7 /* ShapePicker.swift */; };
 		A88A0B842C82068000A07DC7 /* SizePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88A0B832C82068000A07DC7 /* SizePicker.swift */; };
 		A88A0B862C820A0B00A07DC7 /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88A0B852C820A0B00A07DC7 /* Print.swift */; };
+		A8C3E7FC2C8868F300831F38 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C3E7FB2C8868F300831F38 /* Image.swift */; };
+		A8C3E7FE2C88692100831F38 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C3E7FD2C88692100831F38 /* CameraPreview.swift */; };
+		A8C3E8002C88694800831F38 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C3E7FF2C88694800831F38 /* CameraViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +46,7 @@
 		A876A76D2C821A8D008A1CEC /* MailWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailWeb.swift; sourceTree = "<group>"; };
 		A881B63A2C7F332200CD449C /* CitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesView.swift; sourceTree = "<group>"; };
 		A881B63C2C7F33C100CD449C /* MailPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailPhotoView.swift; sourceTree = "<group>"; };
-		A881B63E2C7F33E300CD449C /* YourPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourPhotoView.swift; sourceTree = "<group>"; };
+		A881B63E2C7F33E300CD449C /* YourPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourPhoto.swift; sourceTree = "<group>"; };
 		A881B6402C7F38DB00CD449C /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		A881B6422C7F38FF00CD449C /* FolderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderButton.swift; sourceTree = "<group>"; };
 		A881B6442C7F391500CD449C /* FolderButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderButtons.swift; sourceTree = "<group>"; };
@@ -51,6 +54,9 @@
 		A88A0B812C82066900A07DC7 /* ShapePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapePicker.swift; sourceTree = "<group>"; };
 		A88A0B832C82068000A07DC7 /* SizePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizePicker.swift; sourceTree = "<group>"; };
 		A88A0B852C820A0B00A07DC7 /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
+		A8C3E7FB2C8868F300831F38 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		A8C3E7FD2C88692100831F38 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		A8C3E7FF2C88694800831F38 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,10 +73,7 @@
 		A818E8552C80786B00680E05 /* Cities */ = {
 			isa = PBXGroup;
 			children = (
-				A818E8562C80876900680E05 /* Empty */,
 				A881B63A2C7F332200CD449C /* CitiesView.swift */,
-				A818E8532C8077C900680E05 /* EnlargedImageView.swift */,
-				A818E8592C8087C700680E05 /* ShapeType.swift */,
 			);
 			path = Cities;
 			sourceTree = "<group>";
@@ -78,6 +81,7 @@
 		A818E8562C80876900680E05 /* Empty */ = {
 			isa = PBXGroup;
 			children = (
+				A818E8592C8087C700680E05 /* ShapeType.swift */,
 				A818E8572C8087B200680E05 /* AnyShape.swift */,
 				A818E85B2C8087DB00680E05 /* EmptyView.swift */,
 				A88A0B7F2C82064E00A07DC7 /* ImageEditor.swift */,
@@ -86,6 +90,27 @@
 				A88A0B852C820A0B00A07DC7 /* Print.swift */,
 			);
 			path = Empty;
+			sourceTree = "<group>";
+		};
+		A85D42E02C885E830097FA30 /* Camera  */ = {
+			isa = PBXGroup;
+			children = (
+				A881B63E2C7F33E300CD449C /* YourPhoto.swift */,
+				A8C3E7FB2C8868F300831F38 /* Image.swift */,
+				A8C3E7FD2C88692100831F38 /* CameraPreview.swift */,
+				A8C3E7FF2C88694800831F38 /* CameraViewModel.swift */,
+			);
+			path = "Camera ";
+			sourceTree = "<group>";
+		};
+		A85D42E12C885EB00097FA30 /* Main Folders  */ = {
+			isa = PBXGroup;
+			children = (
+				A881B6402C7F38DB00CD449C /* HeaderView.swift */,
+				A881B6422C7F38FF00CD449C /* FolderButton.swift */,
+				A881B6442C7F391500CD449C /* FolderButtons.swift */,
+			);
+			path = "Main Folders ";
 			sourceTree = "<group>";
 		};
 		A864C30F2C7F26000086CE53 = {
@@ -107,16 +132,16 @@
 		A864C31A2C7F26010086CE53 /* ArtBadge */ = {
 			isa = PBXGroup;
 			children = (
+				A818E8562C80876900680E05 /* Empty */,
+				A85D42E12C885EB00097FA30 /* Main Folders  */,
+				A85D42E02C885E830097FA30 /* Camera  */,
 				A876A76C2C821A3D008A1CEC /* Mail */,
 				A818E8552C80786B00680E05 /* Cities */,
+				A818E8532C8077C900680E05 /* EnlargedImageView.swift */,
 				A864C31B2C7F26010086CE53 /* ArtBadgeApp.swift */,
 				A864C31D2C7F26010086CE53 /* ContentView.swift */,
-				A881B63E2C7F33E300CD449C /* YourPhotoView.swift */,
 				A864C31F2C7F26030086CE53 /* Assets.xcassets */,
 				A864C3212C7F26030086CE53 /* Preview Content */,
-				A881B6402C7F38DB00CD449C /* HeaderView.swift */,
-				A881B6422C7F38FF00CD449C /* FolderButton.swift */,
-				A881B6442C7F391500CD449C /* FolderButtons.swift */,
 			);
 			path = ArtBadge;
 			sourceTree = "<group>";
@@ -214,14 +239,17 @@
 				A818E85C2C8087DB00680E05 /* EmptyView.swift in Sources */,
 				A88A0B862C820A0B00A07DC7 /* Print.swift in Sources */,
 				A818E85A2C8087C700680E05 /* ShapeType.swift in Sources */,
+				A8C3E7FE2C88692100831F38 /* CameraPreview.swift in Sources */,
 				A88A0B822C82066900A07DC7 /* ShapePicker.swift in Sources */,
 				A876A76E2C821A8D008A1CEC /* MailWeb.swift in Sources */,
 				A88A0B842C82068000A07DC7 /* SizePicker.swift in Sources */,
 				A881B6452C7F391500CD449C /* FolderButtons.swift in Sources */,
 				A881B6412C7F38DB00CD449C /* HeaderView.swift in Sources */,
+				A8C3E8002C88694800831F38 /* CameraViewModel.swift in Sources */,
 				A881B63D2C7F33C100CD449C /* MailPhotoView.swift in Sources */,
-				A881B63F2C7F33E300CD449C /* YourPhotoView.swift in Sources */,
+				A881B63F2C7F33E300CD449C /* YourPhoto.swift in Sources */,
 				A818E8542C8077C900680E05 /* EnlargedImageView.swift in Sources */,
+				A8C3E7FC2C8868F300831F38 /* Image.swift in Sources */,
 				A82CAE4E2C83973E00CB15B9 /* MailGallery.swift in Sources */,
 				A864C31C2C7F26010086CE53 /* ArtBadgeApp.swift in Sources */,
 				A881B6432C7F38FF00CD449C /* FolderButton.swift in Sources */,
