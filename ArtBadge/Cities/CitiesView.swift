@@ -43,8 +43,9 @@ struct CitiesView: View {
             }
         }
         .fullScreenCover(item: $selectedImage) { image in
-            EnlargedImageView(selectedImage: image) 
+            EnlargedImageView(uiImage: UIImage(data: image.imageData), imageName: image.name)
         }
+
     }
 }
 

@@ -4,7 +4,9 @@ import AVFoundation
 struct CustomCameraView: View {
     @StateObject private var cameraViewModel = CameraViewModel()
     @State private var capturedImage: UIImage? = nil
-    @State private var showImageView = false
+    @State private var showEnlargedImageView = false
+    
+    @Environment(\.dismiss) var dismiss  
     
     var body: some View {
         ZStack {
@@ -12,6 +14,19 @@ struct CustomCameraView: View {
                 .ignoresSafeArea(.all, edges: .all)
             
             VStack {
+                HStack {
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Image(systemName: "arrow.left")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(.white)
+                    }
+                    .padding()
+                    Spacer()
+                }
+                
                 Spacer()
                 
                 HStack {
@@ -19,7 +34,7 @@ struct CustomCameraView: View {
                     Button(action: {
                         cameraViewModel.takePhoto { image in
                             self.capturedImage = image
-                            self.showImageView = true
+                            self.showEnlargedImageView = true
                         }
                     }) {
                         Image(systemName: "camera.circle")
@@ -33,8 +48,8 @@ struct CustomCameraView: View {
             }
             .background(
                 NavigationLink(
-                    destination: ImageView(image: capturedImage),
-                    isActive: $showImageView,
+                    destination: EnlargedImageView(uiImage: capturedImage, imageName: nil),
+                    isActive: $showEnlargedImageView,
                     label: {
                         Text("")
                     }
@@ -47,6 +62,7 @@ struct CustomCameraView: View {
         .onDisappear {
             cameraViewModel.stopSession()
         }
-        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
 }
+

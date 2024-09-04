@@ -12,6 +12,8 @@ struct EmptyView: View {
     @State private var lastOffset: CGSize = .zero
     @State private var isPrintViewPresented: Bool = false
     
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         VStack {
             Text("Выбери фигуру и размер")
@@ -36,18 +38,33 @@ struct EmptyView: View {
 
             ShapePickerView(selectedShape: $selectedShape)
             SizePickerView(selectedSize: $selectedSize)
-            Button(action: {
-                isPrintViewPresented = true
-            }) {
-                Text("Печать")
-                    .font(.title)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-                    .padding()
+            
+            HStack {
+                Button(action: {
+                    dismiss()  
+                }) {
+                    Text("Назад")
+                        .font(.title)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.gray.opacity(0.7))
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+                
+                Button(action: {
+                    isPrintViewPresented = true
+                }) {
+                    Text("Печать")
+                        .font(.title)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
             }
+            .padding()
             .fullScreenCover(isPresented: $isPrintViewPresented) {
                 PrintView(selectedImage: selectedImage, selectedShape: selectedShape, selectedSize: selectedSize)
             }

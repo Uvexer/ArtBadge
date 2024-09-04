@@ -14,7 +14,7 @@ struct MailGalleryView: View {
         PhotoPicker(selectedImage: $selectedImage)
             .edgesIgnoringSafeArea(.all)
             .fullScreenCover(item: $selectedImage) { image in
-                EnlargedImageView(selectedImage: image)
+                EnlargedImageView(uiImage: image.image, imageName: nil)
             }
     }
 }

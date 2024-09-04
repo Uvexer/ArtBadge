@@ -27,7 +27,6 @@
 		A88A0B822C82066900A07DC7 /* ShapePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88A0B812C82066900A07DC7 /* ShapePicker.swift */; };
 		A88A0B842C82068000A07DC7 /* SizePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88A0B832C82068000A07DC7 /* SizePicker.swift */; };
 		A88A0B862C820A0B00A07DC7 /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88A0B852C820A0B00A07DC7 /* Print.swift */; };
-		A8C3E7FC2C8868F300831F38 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C3E7FB2C8868F300831F38 /* Image.swift */; };
 		A8C3E7FE2C88692100831F38 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C3E7FD2C88692100831F38 /* CameraPreview.swift */; };
 		A8C3E8002C88694800831F38 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C3E7FF2C88694800831F38 /* CameraViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -54,7 +53,6 @@
 		A88A0B812C82066900A07DC7 /* ShapePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapePicker.swift; sourceTree = "<group>"; };
 		A88A0B832C82068000A07DC7 /* SizePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizePicker.swift; sourceTree = "<group>"; };
 		A88A0B852C820A0B00A07DC7 /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
-		A8C3E7FB2C8868F300831F38 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		A8C3E7FD2C88692100831F38 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		A8C3E7FF2C88694800831F38 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,7 +94,6 @@
 			isa = PBXGroup;
 			children = (
 				A881B63E2C7F33E300CD449C /* YourPhoto.swift */,
-				A8C3E7FB2C8868F300831F38 /* Image.swift */,
 				A8C3E7FD2C88692100831F38 /* CameraPreview.swift */,
 				A8C3E7FF2C88694800831F38 /* CameraViewModel.swift */,
 			);
@@ -249,7 +246,6 @@
 				A881B63D2C7F33C100CD449C /* MailPhotoView.swift in Sources */,
 				A881B63F2C7F33E300CD449C /* YourPhoto.swift in Sources */,
 				A818E8542C8077C900680E05 /* EnlargedImageView.swift in Sources */,
-				A8C3E7FC2C8868F300831F38 /* Image.swift in Sources */,
 				A82CAE4E2C83973E00CB15B9 /* MailGallery.swift in Sources */,
 				A864C31C2C7F26010086CE53 /* ArtBadgeApp.swift in Sources */,
 				A881B6432C7F38FF00CD449C /* FolderButton.swift in Sources */,
