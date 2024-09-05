@@ -5,7 +5,7 @@ struct HeaderView: View {
     
     var body: some View {
         Text(text)
-            .font(.system(size: 36))
+            .font(.largeTitle)
             .fontWeight(.bold)
     }
 }

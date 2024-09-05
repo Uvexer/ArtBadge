@@ -6,20 +6,20 @@ struct FolderButtons: View {
 
             HStack(spacing: 200) {
                 FolderButton(
-                    label: "Города",
-                    systemImage: "folder",
+                    label: "Фото городов",
+                    systemImage: "folderr",
                     destination: AnyView(CitiesView())
                 )
                 
                 FolderButton(
-                    label: "Твое фото",
-                    systemImage: "folder",
+                    label: "Камера",
+                    systemImage: "folderr",
                     destination: AnyView(CustomCameraView())
                 )
                 
                 FolderButton(
                     label: "Фото с почты",
-                    systemImage: "folder",
+                    systemImage: "folderr",
                     destination: AnyView(MailPhotoView())
                 )
             }
