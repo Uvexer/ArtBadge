@@ -17,6 +17,9 @@ struct CitiesView: View {
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
     
     @State private var selectedImage: IdentifiableImage? = nil
+    @State private var animateGradient : Bool = false
+    private let startColor: Color = .blue
+    private let endColor: Color = .green
     
     var body: some View {
         ScrollView {
@@ -42,6 +45,15 @@ struct CitiesView: View {
                 .padding()
             }
         }
+        .background(
+            LinearGradient(colors: [startColor, endColor], startPoint: .topLeading, endPoint: .bottomTrailing)
+                .edgesIgnoringSafeArea(.all)
+                .hueRotation(.degrees(animateGradient ? 45 : 0))
+                .onAppear {
+                    withAnimation(.easeInOut(duration: 3).repeatForever(autoreverses: true)) {
+                        animateGradient.toggle()
+                    }
+                })
         .fullScreenCover(item: $selectedImage) { image in
             EnlargedImageView(uiImage: UIImage(data: image.imageData), imageName: image.name)
         }

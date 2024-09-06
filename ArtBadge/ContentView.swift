@@ -4,7 +4,7 @@ struct ContentView: View {
     
     @State private var animateGradient : Bool = false
     private let startColor: Color = .blue
-        private let endColor: Color = .green
+    private let endColor: Color = .green
     
     var body: some View {
         NavigationView {

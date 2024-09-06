@@ -20,7 +20,7 @@ struct FolderButtons: View {
                 FolderButton(
                     label: "Фото с почты",
                     systemImage: "folderr",
-                    destination: AnyView(MailPhotoView())
+                    destination: AnyView(InfoMailView())
                 )
             }
         }
