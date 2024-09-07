@@ -19,6 +19,7 @@
 		A876A76E2C821A8D008A1CEC /* MailWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = A876A76D2C821A8D008A1CEC /* MailWeb.swift */; };
 		A8794BA02C8AD58700AFB835 /* InfoMail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8794B9F2C8AD58700AFB835 /* InfoMail.swift */; };
 		A8794BA22C8AD95800AFB835 /* InfoNextMail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8794BA12C8AD95800AFB835 /* InfoNextMail.swift */; };
+		A881A4422C8C309000F5F800 /* infoVideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = A881A4412C8C309000F5F800 /* infoVideo.mov */; };
 		A881B63B2C7F332200CD449C /* CitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881B63A2C7F332200CD449C /* CitiesView.swift */; };
 		A881B63D2C7F33C100CD449C /* MailPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881B63C2C7F33C100CD449C /* MailPhotoView.swift */; };
 		A881B63F2C7F33E300CD449C /* YourPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881B63E2C7F33E300CD449C /* YourPhoto.swift */; };
@@ -47,6 +48,7 @@
 		A876A76D2C821A8D008A1CEC /* MailWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailWeb.swift; sourceTree = "<group>"; };
 		A8794B9F2C8AD58700AFB835 /* InfoMail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoMail.swift; sourceTree = "<group>"; };
 		A8794BA12C8AD95800AFB835 /* InfoNextMail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoNextMail.swift; sourceTree = "<group>"; };
+		A881A4412C8C309000F5F800 /* infoVideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = infoVideo.mov; sourceTree = "<group>"; };
 		A881B63A2C7F332200CD449C /* CitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesView.swift; sourceTree = "<group>"; };
 		A881B63C2C7F33C100CD449C /* MailPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailPhotoView.swift; sourceTree = "<group>"; };
 		A881B63E2C7F33E300CD449C /* YourPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourPhoto.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 		A876A76C2C821A3D008A1CEC /* Mail */ = {
 			isa = PBXGroup;
 			children = (
+				A881A4412C8C309000F5F800 /* infoVideo.mov */,
 				A881B63C2C7F33C100CD449C /* MailPhotoView.swift */,
 				A876A76D2C821A8D008A1CEC /* MailWeb.swift */,
 				A82CAE4D2C83973E00CB15B9 /* MailGallery.swift */,
@@ -227,6 +230,7 @@
 			files = (
 				A864C3232C7F26030086CE53 /* Preview Assets.xcassets in Resources */,
 				A864C3202C7F26030086CE53 /* Assets.xcassets in Resources */,
+				A881A4422C8C309000F5F800 /* infoVideo.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
