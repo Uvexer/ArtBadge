@@ -19,11 +19,7 @@ struct InfoMailView: View {
             
         
             VStack(spacing:100) {
-                Text("Информация")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .offset(y: -200)
-               
+            
                     Text("Отправьте свое фото на почту\n \(textMail)")
                         .font(.largeTitle)
                         .fontWeight(.bold)
