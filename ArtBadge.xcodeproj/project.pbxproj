@@ -39,6 +39,7 @@
 		A88A0B862C820A0B00A07DC7 /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88A0B852C820A0B00A07DC7 /* Print.swift */; };
 		A8C3E7FE2C88692100831F38 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C3E7FD2C88692100831F38 /* CameraPreview.swift */; };
 		A8C3E8002C88694800831F38 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C3E7FF2C88694800831F38 /* CameraViewModel.swift */; };
+		A8E6CFFF2C8DC96700AA5280 /* SizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E6CFFE2C8DC96700AA5280 /* SizeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		A88A0B852C820A0B00A07DC7 /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
 		A8C3E7FD2C88692100831F38 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		A8C3E7FF2C88694800831F38 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
+		A8E6CFFE2C8DC96700AA5280 /* SizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 		A864C31A2C7F26010086CE53 /* ArtBadge */ = {
 			isa = PBXGroup;
 			children = (
+				A8E6D0002C8DD0C700AA5280 /* Size */,
 				A818E8562C80876900680E05 /* Empty */,
 				A85D42E12C885EB00097FA30 /* Main Folders  */,
 				A85D42E02C885E830097FA30 /* Camera  */,
@@ -205,6 +208,14 @@
 				A8794B9F2C8AD58700AFB835 /* InfoMail.swift */,
 			);
 			path = Mail;
+			sourceTree = "<group>";
+		};
+		A8E6D0002C8DD0C700AA5280 /* Size */ = {
+			isa = PBXGroup;
+			children = (
+				A8E6CFFE2C8DC96700AA5280 /* SizeView.swift */,
+			);
+			path = Size;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +292,7 @@
 				A88A0B802C82064E00A07DC7 /* ImageEditor.swift in Sources */,
 				A864C31E2C7F26010086CE53 /* ContentView.swift in Sources */,
 				A818E85C2C8087DB00680E05 /* EmptyView.swift in Sources */,
+				A8E6CFFF2C8DC96700AA5280 /* SizeView.swift in Sources */,
 				A88A0B862C820A0B00A07DC7 /* Print.swift in Sources */,
 				A818E85A2C8087C700680E05 /* ShapeType.swift in Sources */,
 				A8C3E7FE2C88692100831F38 /* CameraPreview.swift in Sources */,
