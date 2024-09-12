@@ -14,24 +14,13 @@ enum ShapeType {
         }
     }
     
-    func frameSize(for sizeType: SizeType) -> CGSize {
-        switch (self, sizeType) {
-        case (.circle, .large), (.square, .large):
-            return CGSize(width: 500, height: 500)
-        case (.circle, .medium), (.square, .medium):
+    func frameSize() -> CGSize {
+        switch self {
+        case .circle, .square:
             return CGSize(width: 300, height: 300)
-        case (.circle, .small), (.square, .small):
-            return CGSize(width: 100, height: 100)
-        case (.rectangle, .large):
-            return CGSize(width: 500, height: 300)
-        case (.rectangle, .medium):
+        case .rectangle:
             return CGSize(width: 300, height: 200)
-        case (.rectangle, .small):
-            return CGSize(width: 100, height: 60)
         }
     }
 }
 
-enum SizeType {
-    case large, medium, small
-}
