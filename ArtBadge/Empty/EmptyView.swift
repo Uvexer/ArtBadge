@@ -1,5 +1,5 @@
-
 import SwiftUI
+import UIKit
 
 struct EmptyView: View {
     let selectedImage: IdentifiableImage
@@ -9,7 +9,6 @@ struct EmptyView: View {
     @State private var lastScaleValue: CGFloat = 1.0
     @State private var offset: CGSize = .zero
     @State private var lastOffset: CGSize = .zero
-    @State private var isPrintViewPresented: Bool = false
     
     @State private var animateGradient: Bool = false
     private let startColor: Color = .blue
@@ -65,7 +64,7 @@ struct EmptyView: View {
                     }
                     
                     Button(action: {
-                        isPrintViewPresented = true
+                        printImage()
                     }) {
                         Text("Печать")
                             .font(.title)
@@ -77,11 +76,33 @@ struct EmptyView: View {
                     }
                 }
                 .padding()
-                .fullScreenCover(isPresented: $isPrintViewPresented) {
-                    PrintView(selectedImage: selectedImage, selectedShape: selectedShape)
-                }
             }
             .padding()
         }
     }
+    
+    private func printImage() {
+        guard let uiImage = UIImage(data: selectedImage.imageData) else {
+            print("Не удалось загрузить изображение для печати")
+            return
+        }
+        
+        let printController = UIPrintInteractionController.shared
+        let printInfo = UIPrintInfo(dictionary: nil)
+        printInfo.outputType = .general
+        printInfo.jobName = "Печать изображения"
+        printInfo.orientation = .portrait 
+        printController.printInfo = printInfo
+        
+        printController.printingItem = uiImage
+        
+        printController.present(animated: true, completionHandler: { (printController, completed, error) in
+            if !completed, let error = error {
+                print("Ошибка печати: \(error.localizedDescription)")
+            } else {
+                print("Печать завершена успешно")
+            }
+        })
+    }
 }
+
