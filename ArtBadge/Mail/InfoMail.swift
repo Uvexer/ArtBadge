@@ -50,7 +50,9 @@ struct InfoMailView: View {
             }
             .padding()
         }
+        .navigationBarBackButtonHidden(true)
     }
+
 }
 
 #Preview {

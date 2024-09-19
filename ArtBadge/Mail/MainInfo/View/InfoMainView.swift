@@ -11,6 +11,7 @@ struct InfoNextMailView: View {
             BackgroundGradientView()
             ContentsView(player: $player, videoReadyToPlay: $videoReadyToPlay)
         }
+        .navigationBarBackButtonHidden(true)
         .onAppear {
             prepareVideo()
         }

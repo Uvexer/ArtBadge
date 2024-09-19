@@ -43,6 +43,7 @@ struct EmptyView: View {
                         offset: $offset,
                         lastOffset: $lastOffset
                     )
+                    .offset(x: -15, y: -15)
                 } else {
                     Text("Не удалось загрузить изображение")
                         .foregroundColor(.red)
@@ -99,19 +100,19 @@ struct EmptyView: View {
         let isCircle: Bool
         switch selectedShape {
         case .circle:
-            let diameter: CGFloat = 1.9685 * 72
+            let diameter: CGFloat = 2.165354 * 72
             imageSize = CGSize(width: diameter, height: diameter)
             isCircle = true
             
         case .square:
-            let width: CGFloat = 2.3622 * 72
-            let height: CGFloat = 1.5748 * 72
+            let width: CGFloat = 2.362205 * 72
+            let height: CGFloat = 1.574803 * 72
             imageSize = CGSize(width: width, height: height)
             isCircle = false
             
         case .rectangle:
-            let width: CGFloat = 1.9685 * 72
-            let height: CGFloat = 3.54331 * 72
+            let width: CGFloat =  3.5433307 * 72
+            let height: CGFloat =  1.968504 * 72
             imageSize = CGSize(width: width, height: height)
             isCircle = false
         }

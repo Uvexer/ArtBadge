@@ -37,10 +37,14 @@ struct CustomCameraView: View {
                             self.showEnlargedImageView = true
                         }
                     }) {
-                        Image(systemName: "camera.circle")
-                            .resizable()
-                            .frame(width: 100, height: 100)
-                            .foregroundColor(.white)
+                        ZStack {
+                            Circle()
+                                .fill(.white)
+                                .frame(width: 65, height: 65)
+                            Circle()
+                                .stroke(.white, lineWidth: 3)
+                                .frame(width: 75, height: 75)
+                        }
                     }
                     Spacer()
                 }

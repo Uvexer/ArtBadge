@@ -63,6 +63,7 @@ struct CitiesView: View {
                 .padding(.bottom, 30)
             }
         }
+        .navigationBarBackButtonHidden(true)
         .background(
             LinearGradient(colors: [startColor, endColor], startPoint: .topLeading, endPoint: .bottomTrailing)
                 .edgesIgnoringSafeArea(.all)

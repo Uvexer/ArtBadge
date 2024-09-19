@@ -95,7 +95,7 @@ struct ImageEditorView: View {
                     .scaledToFit()
                     .opacity(0.7)
                     .frame(width: size.width * 0.3, height: size.height * 0.3)
-                    .position(x: size.width * 0.5, y: size.height * 0.5)
+                    .position(x: size.width * 0.8, y: size.height * 0.8)
             }
         }
         .frame(width: size.width, height: size.height)
