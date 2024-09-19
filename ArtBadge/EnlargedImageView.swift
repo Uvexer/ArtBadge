@@ -46,25 +46,27 @@ struct EnlargedImageView: View {
                         .foregroundColor(.red)
                 }
 
-                HStack {
+                HStack(spacing:200) {
                     Button("Назад") {
                         dismiss()
                     }
-                    .font(.system(size: 24))
-                    .padding()
-                    .background(Color.gray.opacity(0.7))
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
+                        .font(.title)
+                        .foregroundColor(.white)
+                        .frame(width: 150, height: 50)
+                        .background(Color.blue.opacity(0.9))
+                        .cornerRadius(10)
+                        .shadow(radius: 5)
 
-                    Spacer()
+                  
                     Button("Далее") {
                         isEmptyViewPresented = true
                     }
-                    .font(.system(size: 24))
-                    .padding()
-                    .background(Color.blue)
+                    .font(.title)
                     .foregroundColor(.white)
+                    .frame(width: 150, height: 50)
+                    .background(Color.blue.opacity(0.9))
                     .cornerRadius(10)
+                    .shadow(radius: 5)
                     .fullScreenCover(isPresented: $isEmptyViewPresented) {
                         if let uiImage = uiImage, let imageData = uiImage.jpegData(compressionQuality: 1.0) {
                             let identifiableImage = IdentifiableImage(id: UUID(), name: imageName ?? "Selected Image", imageData: imageData)
@@ -74,7 +76,7 @@ struct EnlargedImageView: View {
                         }
                     }
                 }
-                .padding()
+                .padding(.horizontal, 20)
             }
         }
     }

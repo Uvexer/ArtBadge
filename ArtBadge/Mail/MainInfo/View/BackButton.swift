@@ -1,9 +1,15 @@
 import SwiftUI
 
-struct NavigationButtonView: View {
+struct BackButtonView: View {
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
-        NavigationLink(destination: MailPhotoView()) {
-            Text("Далее")
+        Button(action: {
+            withAnimation {
+                presentationMode.wrappedValue.dismiss()
+            }
+        }) {
+            Text("Назад")
                 .font(.title)
                 .foregroundColor(.white)
                 .frame(width: 150, height: 50)
@@ -11,6 +17,6 @@ struct NavigationButtonView: View {
                 .cornerRadius(10)
                 .shadow(radius: 5)
         }
-        .padding()
+        .padding(.top, 20)
     }
 }

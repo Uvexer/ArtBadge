@@ -21,11 +21,14 @@ struct CitiesView: View {
     private let startColor: Color = .blue
     private let endColor: Color = .green
     
+    @Environment(\.presentationMode) var presentationMode
+
     var body: some View {
         ScrollView {
             VStack {
                 Text("Выбери фотографию")
-                    .font(.system(size: 36))
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
                     .padding(.top)
                 
                 LazyVGrid(columns: columns, spacing: 20) {
@@ -43,21 +46,34 @@ struct CitiesView: View {
                     }
                 }
                 .padding()
+                
+                Spacer()
+                
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("назад")
+                        .font(.title)
+                        .foregroundColor(.white)
+                        .frame(width: 150, height: 50)
+                        .background(Color.blue.opacity(0.9))
+                        .cornerRadius(10)
+                        .shadow(radius: 5)
+                }
+                .padding(.bottom, 30)
             }
         }
         .background(
             LinearGradient(colors: [startColor, endColor], startPoint: .topLeading, endPoint: .bottomTrailing)
                 .edgesIgnoringSafeArea(.all)
-                .hueRotation(.degrees(animateGradient ? 45 : 0))
-                .onAppear {
-                    withAnimation(.easeInOut(duration: 3).repeatForever(autoreverses: true)) {
-                        animateGradient.toggle()
-                    }
-                })
+                .hueRotation(.degrees(animateGradient ? 45 : 0)))
         .fullScreenCover(item: $selectedImage) { image in
             EnlargedImageView(uiImage: UIImage(data: image.imageData), imageName: image.name)
         }
-
     }
+}
+
+#Preview {
+    CitiesView()
 }
 

@@ -50,7 +50,7 @@ struct EmptyView: View {
 
                 ShapePickerView(selectedShape: $selectedShape)
                 
-                HStack {
+                HStack(spacing:150) {
                     Button(action: {
                         dismiss()
                     }) {
@@ -58,7 +58,7 @@ struct EmptyView: View {
                             .font(.title)
                             .padding()
                             .frame(maxWidth: .infinity)
-                            .background(Color.gray.opacity(0.7))
+                            .background(Color.gray.opacity(0.5))
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }
@@ -70,7 +70,7 @@ struct EmptyView: View {
                             .font(.title)
                             .padding()
                             .frame(maxWidth: .infinity)
-                            .background(Color.blue)
+                            .background(Color.blue.opacity(0.8))
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }

@@ -35,6 +35,7 @@
 		A881B6452C7F391500CD449C /* FolderButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881B6442C7F391500CD449C /* FolderButtons.swift */; };
 		A88A0B802C82064E00A07DC7 /* ImageEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88A0B7F2C82064E00A07DC7 /* ImageEditor.swift */; };
 		A88A0B822C82066900A07DC7 /* ShapePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88A0B812C82066900A07DC7 /* ShapePicker.swift */; };
+		A8A18DD22C9B9A04004AFDFE /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A18DD12C9B9A04004AFDFE /* BackButton.swift */; };
 		A8C3E7FE2C88692100831F38 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C3E7FD2C88692100831F38 /* CameraPreview.swift */; };
 		A8C3E8002C88694800831F38 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C3E7FF2C88694800831F38 /* CameraViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -69,6 +70,7 @@
 		A881B6442C7F391500CD449C /* FolderButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderButtons.swift; sourceTree = "<group>"; };
 		A88A0B7F2C82064E00A07DC7 /* ImageEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditor.swift; sourceTree = "<group>"; };
 		A88A0B812C82066900A07DC7 /* ShapePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapePicker.swift; sourceTree = "<group>"; };
+		A8A18DD12C9B9A04004AFDFE /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		A8C3E7FD2C88692100831F38 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		A8C3E7FF2C88694800831F38 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +125,7 @@
 				A84FED8F2C8C81540003C41D /* TitleView.swift */,
 				A84FED912C8C816D0003C41D /* VideoPlayerView.swift */,
 				A84FED932C8C81950003C41D /* NavigstionButton.swift */,
+				A8A18DD12C9B9A04004AFDFE /* BackButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				A881B6412C7F38DB00CD449C /* HeaderView.swift in Sources */,
 				A8C3E8002C88694800831F38 /* CameraViewModel.swift in Sources */,
 				A881B63D2C7F33C100CD449C /* MailPhotoView.swift in Sources */,
+				A8A18DD22C9B9A04004AFDFE /* BackButton.swift in Sources */,
 				A84FED8E2C8C81340003C41D /* ContentsView.swift in Sources */,
 				A84FED902C8C81540003C41D /* TitleView.swift in Sources */,
 				A881B63F2C7F33E300CD449C /* YourPhoto.swift in Sources */,
