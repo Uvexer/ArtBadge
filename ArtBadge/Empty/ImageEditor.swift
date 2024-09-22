@@ -5,91 +5,42 @@ struct ImageEditorView: View {
     let imageName: String?
     let shape: ShapeType
     let size: CGSize
-    
+
     @Binding var currentScale: CGFloat
     @Binding var lastScaleValue: CGFloat
     @Binding var offset: CGSize
     @Binding var lastOffset: CGSize
-    
+
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 if let uiImage = uiImage {
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .scaleEffect(currentScale)
-                        .offset(x: offset.width, y: offset.height)
-                        .gesture(
-                            MagnificationGesture()
-                                .onChanged { value in
-                                    let delta = value / self.lastScaleValue
-                                    self.lastScaleValue = value
-                                    self.currentScale *= delta
-                                }
-                                .onEnded { _ in
-                                    self.lastScaleValue = 1.0
-                                    self.adjustOffset(for: geometry.size, in: size)
-                                }
-                                .simultaneously(
-                                    with: DragGesture()
-                                        .onChanged { value in
-                                            self.offset = CGSize(
-                                                width: self.lastOffset.width + value.translation.width,
-                                                height: self.lastOffset.height + value.translation.height
-                                            )
-                                        }
-                                        .onEnded { value in
-                                            self.lastOffset = self.offset
-                                            self.adjustOffset(for: geometry.size, in: size)
-                                        }
-                                )
-                        )
-                        .frame(width: size.width, height: size.height)
-                        .clipShape(shape.shape)
-                        .overlay(shape.shape.stroke(Color.white, lineWidth: 4))
-                        .shadow(radius: 10)
-                        .padding()
+                    ZoomableImageView(
+                        image: Image(uiImage: uiImage),
+                        size: size,
+                        shape: shape,
+                        currentScale: $currentScale,
+                        lastScaleValue: $lastScaleValue,
+                        offset: $offset,
+                        lastOffset: $lastOffset,
+                        geometrySize: geometry.size
+                    )
                 } else if let imageName = imageName {
-                    Image(imageName)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .scaleEffect(currentScale)
-                        .offset(x: offset.width, y: offset.height)
-                        .gesture(
-                            MagnificationGesture()
-                                .onChanged { value in
-                                    let delta = value / self.lastScaleValue
-                                    self.lastScaleValue = value
-                                    self.currentScale *= delta
-                                }
-                                .onEnded { _ in
-                                    self.lastScaleValue = 1.0
-                                    self.adjustOffset(for: geometry.size, in: size)
-                                }
-                                .simultaneously(
-                                    with: DragGesture()
-                                        .onChanged { value in
-                                            self.offset = CGSize(
-                                                width: self.lastOffset.width + value.translation.width,
-                                                height: self.lastOffset.height + value.translation.height
-                                            )
-                                        }
-                                        .onEnded { value in
-                                            self.lastOffset = self.offset
-                                            self.adjustOffset(for: geometry.size, in: size)
-                                        }
-                                )
-                        )
-                        .frame(width: size.width, height: size.height)
-                        .clipShape(shape.shape)
-                        .overlay(shape.shape.stroke(Color.white, lineWidth: 4))
-                        .shadow(radius: 10)
-                        .padding()
+                    ZoomableImageView(
+                        image: Image(imageName),
+                        size: size,
+                        shape: shape,
+                        currentScale: $currentScale,
+                        lastScaleValue: $lastScaleValue,
+                        offset: $offset,
+                        lastOffset: $lastOffset,
+                        geometrySize: geometry.size
+                    )
                 } else {
                     Text("Изображение не доступно")
                         .foregroundColor(.red)
                 }
+
                 Image("logo.sun")
                     .resizable()
                     .scaledToFit()
@@ -97,25 +48,9 @@ struct ImageEditorView: View {
                     .frame(width: size.width * 0.3, height: size.height * 0.3)
                     .position(x: size.width * 0.8, y: size.height * 0.8)
             }
+            .frame(width: size.width, height: size.height)
         }
         .frame(width: size.width, height: size.height)
     }
-    
-    private func adjustOffset(for parentSize: CGSize, in shapeSize: CGSize) {
-        let scaledWidth = shapeSize.width * currentScale
-        let scaledHeight = shapeSize.height * currentScale
-        
-        let halfImageWidth = scaledWidth / 2
-        let halfImageHeight = scaledHeight / 2
-        
-        let minXOffset = -halfImageWidth + parentSize.width / 2
-        let maxXOffset = halfImageWidth - parentSize.width / 2
-        let minYOffset = -halfImageHeight + parentSize.height / 2
-        let maxYOffset = halfImageHeight - parentSize.height / 2
-        
-        offset.width = min(max(lastOffset.width, minXOffset), maxXOffset)
-        offset.height = min(max(lastOffset.height, minYOffset), maxYOffset)
-        
-        lastOffset = offset
-    }
 }
+

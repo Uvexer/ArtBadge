@@ -3,14 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A804C70B2CA033CB008EC406 /* printfunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A804C70A2CA033CB008EC406 /* printfunc.swift */; };
+		A804C70D2CA03463008EC406 /* Gradient .swift in Sources */ = {isa = PBXBuildFile; fileRef = A804C70C2CA03463008EC406 /* Gradient .swift */; };
+		A804C70F2CA0347D008EC406 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A804C70E2CA0347D008EC406 /* ActionButton.swift */; };
+		A804C7182CA0360E008EC406 /* ZoomableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A804C7172CA0360E008EC406 /* ZoomableImageView.swift */; };
 		A818E8542C8077C900680E05 /* EnlargedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A818E8532C8077C900680E05 /* EnlargedImageView.swift */; };
 		A818E8582C8087B200680E05 /* AnyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A818E8572C8087B200680E05 /* AnyShape.swift */; };
 		A818E85A2C8087C700680E05 /* ShapeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A818E8592C8087C700680E05 /* ShapeType.swift */; };
-		A818E85C2C8087DB00680E05 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A818E85B2C8087DB00680E05 /* EmptyView.swift */; };
 		A82CAE4E2C83973E00CB15B9 /* MailGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82CAE4D2C83973E00CB15B9 /* MailGallery.swift */; };
 		A84FED812C8C7F4C0003C41D /* classInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84FED802C8C7F4B0003C41D /* classInfo.swift */; };
 		A84FED832C8C7F730003C41D /* CustomVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84FED822C8C7F730003C41D /* CustomVideoPlayer.swift */; };
@@ -41,10 +44,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A804C70A2CA033CB008EC406 /* printfunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = printfunc.swift; sourceTree = "<group>"; };
+		A804C70C2CA03463008EC406 /* Gradient .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gradient .swift"; sourceTree = "<group>"; };
+		A804C70E2CA0347D008EC406 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		A804C7172CA0360E008EC406 /* ZoomableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableImageView.swift; sourceTree = "<group>"; };
 		A818E8532C8077C900680E05 /* EnlargedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnlargedImageView.swift; sourceTree = "<group>"; };
 		A818E8572C8087B200680E05 /* AnyShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyShape.swift; sourceTree = "<group>"; };
 		A818E8592C8087C700680E05 /* ShapeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeType.swift; sourceTree = "<group>"; };
-		A818E85B2C8087DB00680E05 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		A82CAE4D2C83973E00CB15B9 /* MailGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailGallery.swift; sourceTree = "<group>"; };
 		A84FED802C8C7F4B0003C41D /* classInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classInfo.swift; sourceTree = "<group>"; };
 		A84FED822C8C7F730003C41D /* CustomVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVideoPlayer.swift; sourceTree = "<group>"; };
@@ -75,6 +81,10 @@
 		A8C3E7FF2C88694800831F38 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		A804C7102CA03574008EC406 /* EmptyView */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = EmptyView; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		A864C3152C7F26010086CE53 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -97,11 +107,15 @@
 		A818E8562C80876900680E05 /* Empty */ = {
 			isa = PBXGroup;
 			children = (
+				A804C7102CA03574008EC406 /* EmptyView */,
 				A818E8592C8087C700680E05 /* ShapeType.swift */,
 				A818E8572C8087B200680E05 /* AnyShape.swift */,
-				A818E85B2C8087DB00680E05 /* EmptyView.swift */,
 				A88A0B7F2C82064E00A07DC7 /* ImageEditor.swift */,
 				A88A0B812C82066900A07DC7 /* ShapePicker.swift */,
+				A804C70A2CA033CB008EC406 /* printfunc.swift */,
+				A804C70C2CA03463008EC406 /* Gradient .swift */,
+				A804C70E2CA0347D008EC406 /* ActionButton.swift */,
+				A804C7172CA0360E008EC406 /* ZoomableImageView.swift */,
 			);
 			path = Empty;
 			sourceTree = "<group>";
@@ -227,6 +241,9 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				A804C7102CA03574008EC406 /* EmptyView */,
+			);
 			name = ArtBadge;
 			productName = ArtBadge;
 			productReference = A864C3182C7F26010086CE53 /* ArtBadge.app */;
@@ -283,12 +300,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A804C70F2CA0347D008EC406 /* ActionButton.swift in Sources */,
 				A88A0B802C82064E00A07DC7 /* ImageEditor.swift in Sources */,
 				A864C31E2C7F26010086CE53 /* ContentView.swift in Sources */,
-				A818E85C2C8087DB00680E05 /* EmptyView.swift in Sources */,
+				A804C7182CA0360E008EC406 /* ZoomableImageView.swift in Sources */,
 				A818E85A2C8087C700680E05 /* ShapeType.swift in Sources */,
 				A8C3E7FE2C88692100831F38 /* CameraPreview.swift in Sources */,
 				A88A0B822C82066900A07DC7 /* ShapePicker.swift in Sources */,
+				A804C70D2CA03463008EC406 /* Gradient .swift in Sources */,
 				A876A76E2C821A8D008A1CEC /* MailWeb.swift in Sources */,
 				A84FED8C2C8C81070003C41D /* GradientView.swift in Sources */,
 				A881B6452C7F391500CD449C /* FolderButtons.swift in Sources */,
@@ -300,6 +319,7 @@
 				A84FED902C8C81540003C41D /* TitleView.swift in Sources */,
 				A881B63F2C7F33E300CD449C /* YourPhoto.swift in Sources */,
 				A8794BA02C8AD58700AFB835 /* InfoMail.swift in Sources */,
+				A804C70B2CA033CB008EC406 /* printfunc.swift in Sources */,
 				A818E8542C8077C900680E05 /* EnlargedImageView.swift in Sources */,
 				A84FED832C8C7F730003C41D /* CustomVideoPlayer.swift in Sources */,
 				A82CAE4E2C83973E00CB15B9 /* MailGallery.swift in Sources */,
@@ -453,6 +473,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -466,7 +487,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -487,6 +508,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -500,7 +522,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

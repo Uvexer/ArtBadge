@@ -18,70 +18,45 @@ struct EmptyView: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(colors: [startColor, endColor], startPoint: .topLeading, endPoint: .bottomTrailing)
-                .edgesIgnoringSafeArea(.all)
-                .hueRotation(.degrees(animateGradient ? 45 : 0))
-                .onAppear {
-                    withAnimation(.easeInOut(duration: 3).repeatForever(autoreverses: true)) {
-                        animateGradient.toggle()
-                    }
+            LinearGradient(colors: [startColor, endColor],
+                           startPoint: .topLeading,
+                           endPoint: .bottomTrailing)
+            .edgesIgnoringSafeArea(.all)
+            .hueRotation(.degrees(animateGradient ? 45 : 0))
+            .onAppear {
+                withAnimation(.easeInOut(duration: 3).repeatForever(autoreverses: true)) {
+                    animateGradient.toggle()
                 }
-
+            }
+            
             VStack {
-                Text("Выбери фигуру")
-                    .font(.system(size: 36))
-                    .fontWeight(.bold)
+                HeadersView()
                 
-                if let uiImage = UIImage(data: selectedImage.imageData) {
-                    ImageEditorView(
-                        uiImage: uiImage,
-                        imageName: nil,
-                        shape: selectedShape,
-                        size: selectedShape.frameSize(),
-                        currentScale: $currentScale,
-                        lastScaleValue: $lastScaleValue,
-                        offset: $offset,
-                        lastOffset: $lastOffset
-                    )
-                    .offset(x: -15, y: -15)
-                } else {
-                    Text("Не удалось загрузить изображение")
-                        .foregroundColor(.red)
-                }
-
+                ImageLoaderView(
+                    selectedImageData: selectedImage.imageData,
+                    selectedShape: $selectedShape,
+                    currentScale: $currentScale,
+                    lastScaleValue: $lastScaleValue,
+                    offset: $offset,
+                    lastOffset: $lastOffset
+                )
+                
                 ShapePickerView(selectedShape: $selectedShape)
                 
-                HStack(spacing:150) {
-                    Button(action: {
-                        dismiss()
-                    }) {
-                        Text("Назад")
-                            .font(.title)
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color.gray.opacity(0.5))
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                    }
-                    
-                    Button(action: {
-                        printImage()
-                    }) {
-                        Text("Печать")
-                            .font(.title)
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color.blue.opacity(0.8))
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                    }
-                }
-                .padding()
+                ButtonsView(
+                    dismissAction: { dismiss() },
+                    printAction: { printImage() }
+                )
             }
             .padding()
         }
     }
-
+    
+    
+    
+    
+    
+    
     private func printImage() {
         guard let uiImage = UIImage(data: selectedImage.imageData),
               let logoImage = UIImage(named: "logo.sun") else {
@@ -100,7 +75,7 @@ struct EmptyView: View {
         let isCircle: Bool
         switch selectedShape {
         case .circle:
-            let diameter: CGFloat = 2.165354 * 72
+            let diameter: CGFloat = 2.165354 * 130
             imageSize = CGSize(width: diameter, height: diameter)
             isCircle = true
             
@@ -133,8 +108,8 @@ struct EmptyView: View {
             
             uiImage.draw(in: CGRect(origin: imageOrigin, size: imageSize))
             
-            let logoOrigin = CGPoint(x: imageOrigin.x + imageSize.width - logoSize.width - 10,
-                                     y: imageOrigin.y + 10)
+            let logoOrigin = CGPoint(x: imageOrigin.x + imageSize.width - logoSize.width - 80,
+                                     y: imageOrigin.y + 20)
             logoImage.draw(in: CGRect(origin: logoOrigin, size: logoSize))
         }
         
@@ -148,6 +123,7 @@ struct EmptyView: View {
             }
         })
     }
-
+    
+    
+    
 }
-
