@@ -1,6 +1,5 @@
 import SwiftUI
 import AVKit
-//import UIKit
 
 struct InfoNextMailView: View {
     @State private var player = AVPlayer()

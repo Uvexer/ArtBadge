@@ -14,9 +14,11 @@ struct ContentsView: View {
             TitleView()
             
             if videoReadyToPlay {
-                VideoPlayerView(player: player)
-                    .frame(width: 700, height: 960)
-                    .padding(.bottom, 20)
+                GeometryReader { geometry in
+                    VideoPlayerView(player: player)
+                        .frame(width: geometry.size.width, height: geometry.size.height) 
+                        .edgesIgnoringSafeArea(.all)
+                }
             }
             
             HStack(spacing: 50) {
