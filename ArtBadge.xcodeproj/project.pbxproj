@@ -11,7 +11,6 @@
 		A804C70D2CA03463008EC406 /* Gradient .swift in Sources */ = {isa = PBXBuildFile; fileRef = A804C70C2CA03463008EC406 /* Gradient .swift */; };
 		A804C70F2CA0347D008EC406 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A804C70E2CA0347D008EC406 /* ActionButton.swift */; };
 		A804C7182CA0360E008EC406 /* ZoomableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A804C7172CA0360E008EC406 /* ZoomableImageView.swift */; };
-		A818E8542C8077C900680E05 /* EnlargedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A818E8532C8077C900680E05 /* EnlargedImageView.swift */; };
 		A818E8582C8087B200680E05 /* AnyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A818E8572C8087B200680E05 /* AnyShape.swift */; };
 		A818E85A2C8087C700680E05 /* ShapeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A818E8592C8087C700680E05 /* ShapeType.swift */; };
 		A82CAE4E2C83973E00CB15B9 /* MailGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82CAE4D2C83973E00CB15B9 /* MailGallery.swift */; };
@@ -48,7 +47,6 @@
 		A804C70C2CA03463008EC406 /* Gradient .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gradient .swift"; sourceTree = "<group>"; };
 		A804C70E2CA0347D008EC406 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		A804C7172CA0360E008EC406 /* ZoomableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableImageView.swift; sourceTree = "<group>"; };
-		A818E8532C8077C900680E05 /* EnlargedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnlargedImageView.swift; sourceTree = "<group>"; };
 		A818E8572C8087B200680E05 /* AnyShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyShape.swift; sourceTree = "<group>"; };
 		A818E8592C8087C700680E05 /* ShapeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeType.swift; sourceTree = "<group>"; };
 		A82CAE4D2C83973E00CB15B9 /* MailGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailGallery.swift; sourceTree = "<group>"; };
@@ -83,6 +81,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		A804C7102CA03574008EC406 /* EmptyView */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = EmptyView; sourceTree = "<group>"; };
+		A8ACDCE12CA87BDB0078BEB6 /* Enlarged */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Enlarged; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,13 +182,12 @@
 		A864C31A2C7F26010086CE53 /* ArtBadge */ = {
 			isa = PBXGroup;
 			children = (
-				A8E6D0002C8DD0C700AA5280 /* Size */,
+				A8ACDCE12CA87BDB0078BEB6 /* Enlarged */,
 				A818E8562C80876900680E05 /* Empty */,
 				A85D42E12C885EB00097FA30 /* Main Folders  */,
 				A85D42E02C885E830097FA30 /* Camera  */,
 				A876A76C2C821A3D008A1CEC /* Mail */,
 				A818E8552C80786B00680E05 /* Cities */,
-				A818E8532C8077C900680E05 /* EnlargedImageView.swift */,
 				A864C31B2C7F26010086CE53 /* ArtBadgeApp.swift */,
 				A864C31D2C7F26010086CE53 /* ContentView.swift */,
 				A864C31F2C7F26030086CE53 /* Assets.xcassets */,
@@ -219,13 +217,6 @@
 			path = Mail;
 			sourceTree = "<group>";
 		};
-		A8E6D0002C8DD0C700AA5280 /* Size */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Size;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -243,6 +234,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				A804C7102CA03574008EC406 /* EmptyView */,
+				A8ACDCE12CA87BDB0078BEB6 /* Enlarged */,
 			);
 			name = ArtBadge;
 			productName = ArtBadge;
@@ -320,7 +312,6 @@
 				A881B63F2C7F33E300CD449C /* YourPhoto.swift in Sources */,
 				A8794BA02C8AD58700AFB835 /* InfoMail.swift in Sources */,
 				A804C70B2CA033CB008EC406 /* printfunc.swift in Sources */,
-				A818E8542C8077C900680E05 /* EnlargedImageView.swift in Sources */,
 				A84FED832C8C7F730003C41D /* CustomVideoPlayer.swift in Sources */,
 				A82CAE4E2C83973E00CB15B9 /* MailGallery.swift in Sources */,
 				A84FED812C8C7F4C0003C41D /* classInfo.swift in Sources */,
